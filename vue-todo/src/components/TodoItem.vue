@@ -1,9 +1,9 @@
 <template>
   <li class="todoitem collection-item valign-wrapper left-align">
     <label class="todoitem__input" v-bind:class="{done: todo.completed}">
-      <input type="checkbox" v-on:change="todo.completed=!todo.completed" />
+      <input type="checkbox" v-on:change="todo.completed=!todo.completed" :checked="todo.completed === true" />
       <span>
-        <strong>{{index+1}}</strong>
+        <strong>{{todo.id}}</strong>
         {{todo.title}}
       </span>
     </label>
@@ -17,8 +17,7 @@ export default {
     todo: {
       type: Object,
       required: true
-    },
-    index: Number
+    }
   },
   components: {}
 };

@@ -1,13 +1,16 @@
 <template>
-  <ul class="collection">
-    <TodoItem
-      v-for="(todo, index) of todos"
-      v-bind:key="todo.id"
-      v-bind:todo="todo"
-      v-bind:index="index"
-      v-on:remove-todo="removeTodo"
-    />
-  </ul>
+  <div>
+    <ul class="collection">
+      <TodoItem
+        v-for="todo of todos"
+        v-bind:todo="todo"
+        v-bind:key="todo.id"
+        v-on:remove-todo="removeTodo"
+      />
+    </ul>
+    <p>All tasks: {{todos.length}}</p>
+    <p>Done: {{doneTasks.length}}</p>
+  </div>
 </template>
 
 <script>
@@ -19,8 +22,13 @@ export default {
   methods: {
     removeTodo(id) {
       this.$emit("remove-todo", id);
-    }
-  }
+    },
+  },
+  computed: {
+    doneTasks() {
+      return this.todos.filter((todo) => todo.completed === true);
+    },
+  },
 };
 </script>
 
