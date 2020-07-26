@@ -15,7 +15,7 @@
 export default {
   data() {
     return {
-      title: ""
+      title: "",
     };
   },
   components: {},
@@ -25,13 +25,13 @@ export default {
         const newTodoItem = {
           id: new Date(),
           title: this.title,
-          completed: false
+          completed: false,
         };
         this.$emit("add-todo", newTodoItem);
         this.title = "";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

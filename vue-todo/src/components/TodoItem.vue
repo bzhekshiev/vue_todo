@@ -1,7 +1,11 @@
 <template>
   <li class="todoitem collection-item valign-wrapper left-align">
     <label class="todoitem__input" v-bind:class="{done: todo.completed}">
-      <input type="checkbox" v-on:change="todo.completed=!todo.completed" :checked="todo.completed === true" />
+      <input
+        type="checkbox"
+        v-on:change="todo.completed=!todo.completed"
+        :checked="todo.completed === true"
+      />
       <span>
         <strong>{{todo.id}}</strong>
         {{todo.title}}
@@ -16,10 +20,10 @@ export default {
   props: {
     todo: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
-  components: {}
+  components: {},
 };
 </script>
 

@@ -8,8 +8,10 @@
         v-on:remove-todo="removeTodo"
       />
     </ul>
-    <p>All tasks: {{todos.length}}</p>
-    <p>Done: {{doneTasks.length}}</p>
+    <div class="todoitem__detail">
+      <span>All tasks: {{todos.length}}</span>
+      <span>Done: {{doneTasks.length}}</span>
+    </div>
   </div>
 </template>
 
@@ -32,4 +34,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.todoitem__detail {
+  display: flex;
+  justify-content: space-around;
+}
+</style>
